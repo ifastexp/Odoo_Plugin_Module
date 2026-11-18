@@ -1,0 +1,101 @@
+# Arabic translation of iFAST Express (ifast_express).
+# Draft: re-export from a test Odoo (Settings > Translations > Export) once the module is installed, then merge.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: ifast_express
+#: model:ir.actions.server,name:ifast_express.action_ifast_send_pickings
+#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
+msgid "Send to iFAST"
+msgstr "إرسال إلى iFAST"
+
+#. module: ifast_express
+#: model:ir.actions.server,name:ifast_express.action_ifast_print_awb_pickings
+#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
+msgid "Print iFAST AWB"
+msgstr "طباعة بوليصة iFAST"
+
+#. module: ifast_express
+#: model:ir.actions.server,name:ifast_express.action_ifast_open_console
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "Open iFAST"
+msgstr "فتح iFAST"
+
+#. module: ifast_express
+#: model:ir.ui.menu,name:ifast_express.menu_ifast_open_console
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+#: model:ir.model.fields.selection,name:ifast_express.selection__delivery_carrier__delivery_type__ifast
+msgid "iFAST Express"
+msgstr "iFAST Express"
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "Connect iFAST"
+msgstr "ربط iFAST"
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "Reconnect"
+msgstr "إعادة الربط"
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "Disconnect"
+msgstr "قطع الربط"
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "Connected"
+msgstr "متصل"
+
+#. module: ifast_express
+#: model:ir.model.fields,field_description:ifast_express.field_res_config_settings__ifast_public_url
+msgid "Public Odoo address"
+msgstr "عنوان Odoo العام"
+
+#. module: ifast_express
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "iFAST could not be reached. Please try again in a minute."
+msgstr "تعذر الوصول إلى iFAST. حاول مرة أخرى بعد دقيقة."
+
+#. module: ifast_express
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "Only an administrator can connect iFAST."
+msgstr "يمكن للمسؤول فقط ربط iFAST."
+
+#. module: ifast_express
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "Nothing to print: send the deliveries to iFAST first."
+msgstr "لا شيء للطباعة: أرسل أوامر التوصيل إلى iFAST أولاً."
+
+#. module: ifast_express
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "Select delivery orders (outgoing)."
+msgstr "اختر أوامر التوصيل (الصادرة)."
+
+#. module: ifast_express
+#: model:ir.model.fields,field_description:ifast_express.field_stock_picking__ifast_send_error
+msgid "Not sent to iFAST"
+msgstr "لم يُرسل إلى iFAST"
+
+#. module: ifast_express
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "Not sent to iFAST: %s. Fix it, then click Send to iFAST or send it from the iFAST console."
+msgstr "لم يُرسل إلى iFAST: %s. صحّح ذلك، ثم اضغط إرسال إلى iFAST أو أرسله من لوحة iFAST."
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
+msgid "Not sent to iFAST:"
+msgstr "لم يُرسل إلى iFAST:"
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
+msgid "Fix it, then click Send to iFAST."
+msgstr "صحّح ذلك، ثم اضغط إرسال إلى iFAST."

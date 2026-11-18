@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="product_ifast_delivery" model="product.product">
+            <field name="name">iFAST Express</field>
+            <field name="default_code">IFAST-DELIVERY</field>
+            <field name="type">service</field>
+            <field name="sale_ok" eval="False"/>
+            <field name="purchase_ok" eval="False"/>
+            <field name="list_price">0.0</field>
+            <field name="invoice_policy">order</field>
+            <field name="taxes_id" eval="[(5, 0, 0)]"/>
+        </record>
+
+        <record id="delivery_carrier_ifast" model="delivery.carrier">
+            <field name="name">iFAST Express</field>
+            <field name="delivery_type">ifast</field>
+            <field name="integration_level">rate_and_ship</field>
+            <field name="product_id" ref="product_ifast_delivery"/>
+        </record>
+    </data>
+</odoo>

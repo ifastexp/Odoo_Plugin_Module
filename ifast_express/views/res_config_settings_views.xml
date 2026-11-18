@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_ifast" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.ifast</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='stock']" position="inside">
+                <block title="iFAST Express" name="ifast_express_setting_container">
+                    <field name="ifast_connected" invisible="1"/>
+                    <setting id="ifast_express_connection" string="iFAST Express"
+                             help="Ship with iFAST Express: prices at checkout, send deliveries, AWB labels and tracking. Connecting creates an Odoo API key for your user that iFAST uses to read deliveries and write tracking back.">
+                        <div class="mt8">
+                            <label for="ifast_public_url" class="o_light_label"/>
+                            <field name="ifast_public_url" placeholder="https://mycompany.com"/>
+                        </div>
+                        <div class="mt8" invisible="ifast_connected">
+                            <button name="action_ifast_connect" type="object" string="Connect iFAST" class="btn-primary" icon="fa-plug"/>
+                        </div>
+                        <div class="mt8" invisible="not ifast_connected">
+                            <span class="text-success me-2"><i class="fa fa-check me-1"/><span>Connected</span></span>
+                            <button name="action_ifast_open" type="object" string="Open iFAST" class="btn-primary" icon="fa-external-link"/>
+                            <button name="action_ifast_connect" type="object" string="Reconnect" class="btn-link"/>
+                            <button name="action_ifast_disconnect" type="object" string="Disconnect" class="btn-link text-danger"
+                                    confirm="Disconnect iFAST? Deliveries stop being sent until you connect again."/>
+                        </div>
+                        <div class="mt8 text-muted" groups="base.group_no_one">
+                            <label for="ifast_service_url" class="o_light_label"/>
+                            <field name="ifast_service_url"/>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
