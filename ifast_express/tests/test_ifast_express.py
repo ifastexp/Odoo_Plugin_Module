@@ -113,6 +113,13 @@ class TestIfastExpress(TransactionCase):
             with self.assertRaises(UserError):
                 self.carrier.ifast_send_shipping(picking)
 
+    def test_connect_publishes_the_method_for_website_checkout(self):
+        if "is_published" not in self.carrier._fields:
+            self.skipTest("website_sale is not installed")
+        self.carrier.is_published = False
+        self.env["ifast.connector"]._publish_on_website()
+        self.assertTrue(self.carrier.is_published)
+
     def test_not_connected_says_so(self):
         self.env["ir.config_parameter"].sudo().set_param(PARAM_SITE_ID, False)
         with self.assertRaises(UserError):

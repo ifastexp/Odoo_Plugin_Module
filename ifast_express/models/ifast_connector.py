@@ -111,10 +111,10 @@ class IfastConnector(models.AbstractModel):
         except requests.RequestException as error:
             _logger.warning("iFAST call %s failed: %s", route, error)
             raise UserError(_("iFAST could not be reached. Please try again in a minute.")) from error
-        return self._read(response)
+        return self._read_response(response)
 
     @api.model
-    def _read(self, response):
+    def _read_response(self, response):
         try:
             data = response.json()
         except ValueError:
@@ -180,12 +180,21 @@ class IfastConnector(models.AbstractModel):
             response = requests.post(self._service_url() + "/odoo/register", json=payload, timeout=60)
         except requests.RequestException as error:
             raise UserError(_("iFAST could not be reached. Please try again in a minute.")) from error
-        data = self._read(response)
+        data = self._read_response(response)
         if not data.get("site_id") or not data.get("site_secret"):
             raise UserError(_("iFAST did not finish the connection. Please try again."))
         params.set_param(PARAM_SITE_ID, data["site_id"])
         params.set_param(PARAM_SECRET, data["site_secret"])
+        self._publish_on_website()
         return self.action_open_console()
+
+    @api.model
+    def _publish_on_website(self):
+        """With the website shop (website_sale) installed, Odoo shows a shipping method at checkout only when it is
+        published: publish "iFAST Express" at connect so customers see the iFAST price. Without the shop there is no field."""
+        carrier = self.env.ref("ifast_express.delivery_carrier_ifast", raise_if_not_found=False)
+        if carrier and "is_published" in carrier._fields and not carrier.is_published:
+            carrier.sudo().is_published = True
 
     @api.model
     def action_disconnect(self):
