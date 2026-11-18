@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Bulk actions on the delivery list (the Odoo side of Shopify's "Send to iFAST" / "Print iFAST AWB" admin actions). -->
+    <record id="action_ifast_send_pickings" model="ir.actions.server">
+        <field name="name">Send to iFAST</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_view_types">list</field>
+        <field name="groups_id" eval="[(4, ref('stock.group_stock_user'))]"/>
+        <field name="state">code</field>
+        <field name="code">action = records.action_ifast_send()</field>
+    </record>
+
+    <record id="action_ifast_print_awb_pickings" model="ir.actions.server">
+        <field name="name">Print iFAST AWB</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_view_types">list</field>
+        <field name="binding_type">report</field>
+        <field name="groups_id" eval="[(4, ref('stock.group_stock_user'))]"/>
+        <field name="state">code</field>
+        <field name="code">action = records.action_ifast_print_awb()</field>
+    </record>
+
+    <!-- Step 2 of Connect, run by the web client in a NEW request so the API key made in step 1 is committed. -->
+    <record id="action_ifast_connect_finish" model="ir.actions.server">
+        <field name="name">Connect iFAST</field>
+        <field name="model_id" ref="base.model_res_config_settings"/>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        <field name="state">code</field>
+        <field name="code">action = env["ifast.connector"].action_connect_finish()</field>
+    </record>
+
+    <record id="action_ifast_open_console" model="ir.actions.server">
+        <field name="name">Open iFAST</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="state">code</field>
+        <field name="code">action = env["ifast.connector"].action_open_console()</field>
+    </record>
+</odoo>
