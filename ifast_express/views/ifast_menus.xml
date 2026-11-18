@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_ifast_open_console"
+              name="iFAST Express"
+              parent="stock.menu_stock_root"
+              action="action_ifast_open_console"
+              groups="stock.group_stock_manager"
+              sequence="95"/>
+</odoo>
