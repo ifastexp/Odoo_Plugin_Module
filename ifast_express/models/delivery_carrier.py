@@ -70,8 +70,12 @@ class DeliveryCarrier(models.Model):
             data = self.env["ifast.connector"]._signed_post("/odoo/ship", {"picking_id": picking.id}, timeout=45)
             if not data.get("ok"):
                 raise UserError(_("iFAST could not take %(name)s: %(message)s", name=picking.name, message=data.get("message") or _("unknown error")))
-            # The price the customer was charged stays on the sale; iFAST invoices the shipper separately.
-            results.append({"exact_price": 0.0, "tracking_number": data.get("tracking_number")})
+            # The delivery price already on the sale (what the customer was charged), so Odoo's "Cost" note is right and
+            # nothing is added to the sale again; iFAST invoices the shipper separately.
+            charged = 0.0
+            if picking.sale_id:
+                charged = sum(picking.sale_id.order_line.filtered(lambda line: line.is_delivery).mapped("price_subtotal"))
+            results.append({"exact_price": charged, "tracking_number": data.get("tracking_number")})
         return results
 
     def ifast_get_tracking_link(self, picking):

@@ -57,7 +57,7 @@ class StockPicking(models.Model):
         try:
             return super().send_to_shipper()
         except UserError as error:
-            reason = str(error)
+            reason = str(error).strip().rstrip(".")
             self.ifast_send_error = reason
             self.message_post(body=_("Not sent to iFAST: %s. Fix it, then click Send to iFAST or send it from the iFAST console.", reason))
             return None
@@ -95,7 +95,14 @@ class StockPicking(models.Model):
                 failed.append("%s: %s" % (picking.name, error))
                 continue
             if data.get("ok"):
-                sent.append("%s: %s" % (picking.name, data.get("tracking_number")))
+                tracking = data.get("tracking_number")
+                # iFAST does not write to the delivery during /odoo/ship (this transaction may hold its row), so the
+                # tracking number is saved here; that also clears "Not sent to iFAST".
+                if tracking and picking.carrier_tracking_ref != tracking:
+                    picking.carrier_tracking_ref = tracking
+                    link = data.get("tracking_url") or (picking.carrier_id.get_tracking_link(picking) if picking.carrier_id else False)
+                    picking.message_post(body=_("Sent to iFAST: %(tracking)s %(link)s", tracking=tracking, link=link or ""))
+                sent.append("%s: %s" % (picking.name, tracking))
             else:
                 failed.append("%s: %s" % (picking.name, data.get("message") or _("not sent")))
         if later:
