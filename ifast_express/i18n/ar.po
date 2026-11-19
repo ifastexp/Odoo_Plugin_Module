@@ -1,49 +1,55 @@
-# Arabic translation of iFAST Express (ifast_express).
-# Draft: re-export from a test Odoo (Settings > Translations > Export) once the module is installed, then merge.
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ifast_express
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 18.0-20261118\n"
 "Report-Msgid-Bugs-To: \n"
-"Language: ar\n"
+"POT-Creation-Date: 2026-11-19 01:22+0000\n"
+"PO-Revision-Date: 2026-11-19 01:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
+"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
 #. module: ifast_express
-#: model:ir.actions.server,name:ifast_express.action_ifast_send_pickings
-#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
-msgid "Send to iFAST"
-msgstr "إرسال إلى iFAST"
-
-#. module: ifast_express
-#: model:ir.actions.server,name:ifast_express.action_ifast_print_awb_pickings
-#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
-msgid "Print iFAST AWB"
-msgstr "طباعة بوليصة iFAST"
-
-#. module: ifast_express
-#: model:ir.actions.server,name:ifast_express.action_ifast_open_console
 #: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
-msgid "Open iFAST"
-msgstr "فتح iFAST"
+msgid ""
+"<span class=\"text-success me-2\"><i class=\"fa fa-check "
+"me-1\"/><span>Connected</span></span>"
+msgstr "<span class=\"text-success me-2\"><i class=\"fa fa-check me-1\"/><span>متصل</span></span>"
 
 #. module: ifast_express
-#: model:ir.ui.menu,name:ifast_express.menu_ifast_open_console
-#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
-#: model:ir.model.fields.selection,name:ifast_express.selection__delivery_carrier__delivery_type__ifast
-msgid "iFAST Express"
-msgstr "iFAST Express"
+#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
+msgid "<strong>Not sent to iFAST:</strong>"
+msgstr "<strong>لم يُرسل إلى iFAST:</strong>"
 
 #. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/delivery_carrier.py:0
+msgid "Activate the AED currency (with a rate) to use iFAST prices."
+msgstr "فعّل عملة الدرهم الإماراتي (AED) مع سعر صرف لاستخدام أسعار iFAST."
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "Click Connect iFAST again."
+msgstr "اضغط ربط iFAST مرة أخرى."
+
+#. module: ifast_express
+#: model:ir.model,name:ifast_express.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: ifast_express
+#: model:ir.actions.server,name:ifast_express.action_ifast_connect_finish
 #: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
 msgid "Connect iFAST"
 msgstr "ربط iFAST"
-
-#. module: ifast_express
-#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
-msgid "Reconnect"
-msgstr "إعادة الربط"
 
 #. module: ifast_express
 #: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
@@ -52,33 +58,19 @@ msgstr "قطع الربط"
 
 #. module: ifast_express
 #: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
-msgid "Connected"
-msgstr "متصل"
+msgid "Disconnect iFAST? Deliveries stop being sent until you connect again."
+msgstr "قطع الربط مع iFAST؟ سيتوقف إرسال أوامر التوصيل حتى تعيد الربط."
 
 #. module: ifast_express
-#: model:ir.model.fields,field_description:ifast_express.field_res_config_settings__ifast_public_url
-msgid "Public Odoo address"
-msgstr "عنوان Odoo العام"
+#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
+msgid "Fix it, then click Send to iFAST."
+msgstr "صحّح ذلك، ثم اضغط إرسال إلى iFAST."
 
 #. module: ifast_express
-#: code:addons/ifast_express/models/ifast_connector.py:0
-msgid "iFAST could not be reached. Please try again in a minute."
-msgstr "تعذر الوصول إلى iFAST. حاول مرة أخرى بعد دقيقة."
-
-#. module: ifast_express
-#: code:addons/ifast_express/models/ifast_connector.py:0
-msgid "Only an administrator can connect iFAST."
-msgstr "يمكن للمسؤول فقط ربط iFAST."
-
-#. module: ifast_express
-#: code:addons/ifast_express/models/stock_picking.py:0
-msgid "Nothing to print: send the deliveries to iFAST first."
-msgstr "لا شيء للطباعة: أرسل أوامر التوصيل إلى iFAST أولاً."
-
-#. module: ifast_express
-#: code:addons/ifast_express/models/stock_picking.py:0
-msgid "Select delivery orders (outgoing)."
-msgstr "اختر أوامر التوصيل (الصادرة)."
+#. odoo-python
+#: code:addons/ifast_express/models/delivery_carrier.py:0
+msgid "No iFAST price for this address."
+msgstr "لا يوجد سعر iFAST لهذا العنوان."
 
 #. module: ifast_express
 #: model:ir.model.fields,field_description:ifast_express.field_stock_picking__ifast_send_error
@@ -86,16 +78,221 @@ msgid "Not sent to iFAST"
 msgstr "لم يُرسل إلى iFAST"
 
 #. module: ifast_express
+#. odoo-python
 #: code:addons/ifast_express/models/stock_picking.py:0
-msgid "Not sent to iFAST: %s. Fix it, then click Send to iFAST or send it from the iFAST console."
+msgid ""
+"Not sent to iFAST: %s. Fix it, then click Send to iFAST or send it from the "
+"iFAST console."
 msgstr "لم يُرسل إلى iFAST: %s. صحّح ذلك، ثم اضغط إرسال إلى iFAST أو أرسله من لوحة iFAST."
 
 #. module: ifast_express
-#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
-msgid "Not sent to iFAST:"
-msgstr "لم يُرسل إلى iFAST:"
+#. odoo-python
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "Not tried yet (click again): %s"
+msgstr "لم تتم المحاولة بعد (اضغط مرة أخرى): %s"
 
 #. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "Nothing to print: send the deliveries to iFAST first."
+msgstr "لا شيء للطباعة: أرسل أوامر التوصيل إلى iFAST أولاً."
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "Only Inventory administrators can open iFAST."
+msgstr "يمكن لمسؤولي المخزون فقط فتح iFAST."
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "Only an administrator can connect iFAST."
+msgstr "يمكن للمسؤول فقط ربط iFAST."
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "Only an administrator can disconnect iFAST."
+msgstr "يمكن للمسؤول فقط قطع الربط مع iFAST."
+
+#. module: ifast_express
+#: model:ir.actions.server,name:ifast_express.action_ifast_open_console
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "Open iFAST"
+msgstr "فتح iFAST"
+
+#. module: ifast_express
+#: model:ir.actions.server,name:ifast_express.action_ifast_print_awb_pickings
 #: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
-msgid "Fix it, then click Send to iFAST."
-msgstr "صحّح ذلك، ثم اضغط إرسال إلى iFAST."
+msgid "Print iFAST AWB"
+msgstr "طباعة بوليصة iFAST"
+
+#. module: ifast_express
+#: model:ir.model.fields,field_description:ifast_express.field_delivery_carrier__delivery_type
+msgid "Provider"
+msgstr "المزود"
+
+#. module: ifast_express
+#: model:ir.model.fields,field_description:ifast_express.field_res_config_settings__ifast_public_url
+msgid "Public Odoo address"
+msgstr "عنوان Odoo العام"
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "Reconnect"
+msgstr "إعادة الربط"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "Select delivery orders (outgoing)."
+msgstr "اختر أوامر التوصيل (الصادرة)."
+
+#. module: ifast_express
+#: model:ir.actions.server,name:ifast_express.action_ifast_send_pickings
+#: model_terms:ir.ui.view,arch_db:ifast_express.view_picking_form_ifast
+msgid "Send to iFAST"
+msgstr "إرسال إلى iFAST"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "Sent to iFAST: %(tracking)s %(link)s"
+msgstr "أُرسل إلى iFAST: %(tracking)s %(link)s"
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid ""
+"Ship with iFAST Express: prices at checkout, send deliveries, AWB labels and"
+" tracking. Connecting creates an Odoo API key for your user that iFAST uses "
+"to read deliveries and write tracking back."
+msgstr "اشحن مع iFAST Express: أسعار التوصيل عند الدفع، إرسال أوامر التوصيل، بوالص الشحن والتتبع. الربط ينشئ مفتاح API في Odoo لمستخدمك، تستخدمه iFAST لقراءة أوامر التوصيل وكتابة رقم التتبع."
+
+#. module: ifast_express
+#: model:ir.model,name:ifast_express.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "طرق الشحن"
+
+#. module: ifast_express
+#: model:ir.model.fields,help:ifast_express.field_res_config_settings__ifast_public_url
+msgid ""
+"The https address iFAST uses to reach this Odoo. Leave empty to use the web "
+"base URL."
+msgstr "عنوان https الذي تستخدمه iFAST للوصول إلى Odoo هذا. اتركه فارغاً لاستخدام عنوان الموقع الأساسي."
+
+#. module: ifast_express
+#: model:ir.model,name:ifast_express.model_stock_picking
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "cancelled"
+msgstr "ملغي"
+
+#. module: ifast_express
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "https://mycompany.com"
+msgstr "https://mycompany.com"
+
+#. module: ifast_express
+#: model:delivery.carrier,name:ifast_express.delivery_carrier_ifast
+#: model:ir.model.fields.selection,name:ifast_express.selection__delivery_carrier__delivery_type__ifast
+#: model:ir.ui.menu,name:ifast_express.menu_ifast_open_console
+#: model:product.template,name:ifast_express.product_ifast_delivery_product_template
+#: model_terms:ir.ui.view,arch_db:ifast_express.res_config_settings_view_form_ifast
+msgid "iFAST Express"
+msgstr "iFAST Express"
+
+#. module: ifast_express
+#: model:ir.model,name:ifast_express.model_ifast_connector
+msgid "iFAST Express connection"
+msgstr "ربط iFAST Express"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "iFAST answered with an error (%s)."
+msgstr "ردّت iFAST بخطأ (%s)."
+
+#. module: ifast_express
+#: model:ir.model.fields,field_description:ifast_express.field_res_config_settings__ifast_connected
+msgid "iFAST connected"
+msgstr "تم ربط iFAST"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "iFAST could not be reached. Please try again in a minute."
+msgstr "تعذر الوصول إلى iFAST. حاول مرة أخرى بعد دقيقة."
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/delivery_carrier.py:0
+msgid "iFAST could not cancel %(name)s: %(message)s"
+msgstr "تعذر على iFAST إلغاء %(name)s: %(message)s"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/delivery_carrier.py:0
+msgid "iFAST could not take %(name)s: %(message)s"
+msgstr "تعذر على iFAST استلام %(name)s: %(message)s"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid ""
+"iFAST did not accept this Odoo. Reconnect it in Settings > iFAST Express."
+msgstr "لم تقبل iFAST هذا الـ Odoo. أعد الربط من الإعدادات > iFAST Express."
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid "iFAST did not finish the connection. Please try again."
+msgstr "لم تكمل iFAST الربط. حاول مرة أخرى."
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid ""
+"iFAST is not connected yet. Open Inventory > Configuration > Settings > "
+"iFAST Express and click Connect."
+msgstr "iFAST غير مربوط بعد. افتح المخزون > التهيئة > الإعدادات > iFAST Express واضغط ربط."
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/ifast_connector.py:0
+msgid ""
+"iFAST needs this Odoo's public https address. Set it in Settings > iFAST "
+"Express (Public Odoo address)."
+msgstr "تحتاج iFAST إلى عنوان https العام لهذا الـ Odoo. أدخله في الإعدادات > iFAST Express (عنوان Odoo العام)."
+
+#. module: ifast_express
+#: model:ir.model.fields,field_description:ifast_express.field_res_config_settings__ifast_service_url
+msgid "iFAST service"
+msgstr "خدمة iFAST"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "iFAST: %(sent)s sent, %(failed)s not sent"
+msgstr "iFAST: أُرسل %(sent)s، لم يُرسل %(failed)s"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "not sent"
+msgstr "لم يُرسل"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/delivery_carrier.py:0
+msgid "unknown error"
+msgstr "خطأ غير معروف"
+
+#. module: ifast_express
+#. odoo-python
+#: code:addons/ifast_express/models/stock_picking.py:0
+msgid "uses another shipping method (%s)"
+msgstr "يستخدم طريقة شحن أخرى (%s)"

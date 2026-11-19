@@ -58,7 +58,8 @@ class StockPicking(models.Model):
             return super().send_to_shipper()
         except UserError as error:
             reason = str(error).strip().rstrip(".")
-            self.ifast_send_error = reason
+            # The banner shows the field followed by "Fix it, ...", so the field keeps its own full stop.
+            self.ifast_send_error = reason + "."
             self.message_post(body=_("Not sent to iFAST: %s. Fix it, then click Send to iFAST or send it from the iFAST console.", reason))
             return None
 
